@@ -3,39 +3,21 @@ $(document).ready(function(){
 
   $(".generateContainer").click("click",function(){
     clickNum++;
-    var containerContent = "<div class='container'><p class='newNum'>" + "Line Num: " + clickNum + "</p><br /></div>";
     var containerButton1 = "<button class='changeColor'>Change Color</button>";
     var containerButton2 = "<button class='remove'>Remove</button>";
+    var containerContent = "<div class='container'><p class='newNum'>" + "Line Num: " + clickNum + "</p><br />" + containerButton1 + containerButton2 + "</div>";
 
-    $("body").append(containerContent + containerButton1 + containerButton2);
+
+    $("body").append(containerContent);
 
     $(".changeColor").click("click",function(){
-      $(".container").css("background-color", changeColor(clickNum));
+      $(this).parent().css("background-color", "green");
     });//end changeColor
+
+    $(".remove").click("click",function(){
+      $(this).parent().css("background-color", "white");
+    });//end changeColor
+
   });//end onClick
-
-
-
-  function changeColor(clickNum){
-    var color = "";
-    switch(clickNum){
-      case(1):
-          color = "red";
-          break;
-      case(2):
-          color = "orange";
-          break;
-      case(3):
-          color = "yellow";
-          break;
-      case(4):
-          color = "blue";
-          break;
-      case(5):
-          color="green";
-          break;
-    }
-    return color;
-  }
 
 });//end documentReady
