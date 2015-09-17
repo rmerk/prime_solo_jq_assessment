@@ -1,6 +1,7 @@
 $(document).ready(function(){
   var clickNum = 0;
 
+
   $(".generateContainer").click("click",function(){
     clickNum++;
     var containerButton1 = "<button class='changeColor'>Change Color</button>";
@@ -11,7 +12,8 @@ $(document).ready(function(){
     $("body").append(containerContent);
 
     $(".changeColor").click("click",function(){
-      $(this).parent().css("background-color", "green");
+      $(this).parent().css("background-color", randomColor());
+      console.log(randomColor());
     });//end changeColor
 
     $(".remove").click("click",function(){
@@ -19,5 +21,15 @@ $(document).ready(function(){
     });//end changeColor
 
   });//end onClick
+
+  function randomColor(){
+    var text = "";
+    var possible = "abcdef0123456789";
+
+    for(var i=0; i < 6; i++ ){
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return "#" + text;
+  }//end randomColor
 
 });//end documentReady
